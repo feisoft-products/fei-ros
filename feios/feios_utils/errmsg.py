@@ -17,9 +17,9 @@ Execution halted.
 """
 def ERR_ENCODING(_e,/):
     print(f"""File error:ERROR 005
-Invalid Encoding at {_e}.
-Execution halted.
-""")
+    Invalid Encoding at {_e}.
+    Execution halted.
+    """)
 FATAL_OS = """System fatal error:FATAL 001
 Host OS Error.
 Report this to https://github.com/devoter-fyc/fei-ros.
