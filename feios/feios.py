@@ -4,6 +4,7 @@ import feios_utils.funcs as utils
 ################################
 
 print("Welcome to FEI-ROS.")
+print("WARNING:This is alpha version.  WE DO NOT PROVIDE ANY WARRANTY.")
 print(f"Working on {os.name.upper()}")
 print("Wait for key services to setup...")
 time.sleep(3)

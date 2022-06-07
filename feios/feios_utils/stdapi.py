@@ -6,7 +6,7 @@ The new API is faster but uses (relatively) more RAM.
 from . import errmsg
 # Constants.
 version = (0,4,0)
-versuffix = "a1"
+versuffix = "a2"
 __null__ = None
 
 # Functions.
