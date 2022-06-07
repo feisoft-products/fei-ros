@@ -3,10 +3,10 @@ The old feios_utils.funcs will be deprecated soon in (at most) 0.5.0 and will be
 The new API is faster but uses (relatively) more RAM.
 """
 # Imports.
-from . import errmsg
+from . import msg
 # Constants.
 version = (0,4,0)
-versuffix = "a2"
+versuffix = "a3"
 __null__ = None
 
 # Functions.
@@ -29,7 +29,7 @@ def _out(line :str):
             print(line[4:],end="")
             return 0
         else:
-            print(errmsg.ERR_SPACES)
+            print(msg.ERR_SPACES)
             return 2
 
 def _outl(line :str):
@@ -41,7 +41,7 @@ def _outl(line :str):
             print(line[5:])
             return 0
         else:
-            print(errmsg.ERR_SPACES)
+            print(msg.ERR_SPACES)
             return 2
 
 def _exit(line :str):
@@ -67,15 +67,15 @@ def runbatch(pof):
     try:
         f = open(pof,'r')
     except FileNotFoundError:
-        print(errmsg.ERR_NO_FILE)
+        print(msg.ERR_NO_FILE)
         return 2
     except UnicodeDecodeError as e:
-        print(errmsg.ERR_ENCODING(e))
+        print(msg.ERR_ENCODING(e))
     except OSError:
-        print(errmsg.FATAL_OS)
+        print(msg.FATAL_OS)
         return 255
     except Exception:
-        print(errmsg.FATAL_UNKNOWN)
+        print(msg.FATAL_UNKNOWN)
         return 255
     content = f.readlines()
     ret = run(content)
@@ -99,7 +99,7 @@ def run(l :list[str]):
         elif line.startswith("exit"):
             _exit()
         else:
-            print(errmsg.ERR_NO_COMMAND)
+            print(msg.ERR_NO_COMMAND)
     return
 
 def load_cmd(cmd :str):
@@ -118,5 +118,5 @@ def load_cmd(cmd :str):
     elif cmd.startswith("exit"):
         _exit(cmd)
     else:
-        print(errmsg.ERR_NO_COMMAND)
+        print(msg.ERR_NO_COMMAND)
     return

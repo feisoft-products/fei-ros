@@ -1,5 +1,5 @@
 # FEI OS useful utils
-from . import errmsg
+from . import msg
 
 __all__ = ["out", "outline", "run", "runbatch","load_cmd"]
 
@@ -28,14 +28,14 @@ def run(tl: list[str]):
                     print(line[5:])
                     continue
                 else:
-                    print(errmsg.ERR_SPACES)
+                    print(msg.ERR_SPACES)
                     return 2
         elif line[:3] == "out":
             if len(line) == 3:
                 print("",end="")
                 continue
             if line[3] != " ":
-                print(errmsg.ERR_SPACES)
+                print(msg.ERR_SPACES)
                 return 2
             else:
                 print(line[4:])
@@ -43,7 +43,7 @@ def run(tl: list[str]):
         elif line[:4] == "exit":
             return 0
         else:
-            print(errmsg.ERR_NO_COMMAND)
+            print(msg.ERR_NO_COMMAND)
             return 2
 
 
@@ -52,15 +52,15 @@ def runbatch(pof):
     try:
         f = open(pof,'r')
     except FileNotFoundError:
-        print(errmsg.ERR_NO_FILE)
+        print(msg.ERR_NO_FILE)
         return 2
     except UnicodeDecodeError as e:
-        print(errmsg.ERR_ENCODING(e))
+        print(msg.ERR_ENCODING(e))
     except OSError:
-        print(errmsg.FATAL_OS)
+        print(msg.FATAL_OS)
         return 255
     except Exception:
-        print(errmsg.FATAL_UNKNOWN)
+        print(msg.FATAL_UNKNOWN)
         return 255
     content = f.readlines()
     ret = run(content)
@@ -92,7 +92,7 @@ def load_cmd(cmd : str):
                 print(cmd[5:])
                 return
             else:
-                print(errmsg.ERR_SPACES)
+                print(msg.ERR_SPACES)
                 return
     elif cmd[:3] == "out":
         if len(cmd) == 3:
@@ -101,14 +101,14 @@ def load_cmd(cmd : str):
         if cmd[3] == " ":
             print(cmd[4:],end="")
         else:
-            print(errmsg.ERR_SPACES)
+            print(msg.ERR_SPACES)
             return
     elif cmd[:3] == "run":
         if len(cmd) == 3:
-            print(errmsg.ERR_NOT_SPECIFIC_SCRIPT)
+            print(msg.ERR_NOT_SPECIFIC_SCRIPT)
             return
         elif cmd[3] != " ":
-            print(errmsg.ERR_SPACES)
+            print(msg.ERR_SPACES)
             return
         else:
             runbatch(cmd[4:])
@@ -121,6 +121,6 @@ def load_cmd(cmd : str):
     elif cmd == "":
         return
     else:
-        print(errmsg.ERR_NO_COMMAND)
+        print(msg.ERR_NO_COMMAND)
         return
     return
