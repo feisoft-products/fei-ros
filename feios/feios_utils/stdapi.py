@@ -49,6 +49,11 @@ def _exit(line :str):
         exit()
     else:
         exit(line[4:])
+
+def _help():
+    with open(".\help\init.txt") as f:
+        a = f.read()
+        print(a)
        
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
@@ -117,6 +122,8 @@ def load_cmd(cmd :str):
         return
     elif cmd.startswith("exit"):
         _exit(cmd)
+    elif cmd.startswith("help"):
+        _help()
     else:
         print(msg.ERR_NO_COMMAND)
     return

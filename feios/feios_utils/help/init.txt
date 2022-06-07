@@ -1,0 +1,10 @@
+FEI ROS version 0.4.0(pre-release;0.4.0;beta;1)       FEI Help Service 0.1.0(pre-release;0.1.0;python)
+Welcome to FEI ROS.
+This is an operating system that dedicates to operating system.
+
+---------------------------------------------
+
+CUC(Commonly Used Commands)
+help  --           show the help and exit
+out   --           print a message and continue on the same line
+outl  --           print a meassage and switch to next line
