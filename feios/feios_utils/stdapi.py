@@ -6,7 +6,7 @@ The new API is faster but uses (relatively) more RAM.
 from . import errmsg
 # Constants.
 version = (0,4,0)
-versuffix = "dev5"
+versuffix = "dev6"
 __null__ = None
 
 # Functions.
@@ -87,6 +87,9 @@ def run(l :list[str]):
     for line in l:
         if line.startswith('#'):
             continue
+        elif line.startswith("run"):
+            _a = runbatch(line[4:])
+            continue
         elif line.startswith("outl"):
             _a = _outl(line)
             continue
@@ -97,4 +100,23 @@ def run(l :list[str]):
             _exit()
         else:
             print(errmsg.ERR_NO_COMMAND)
+    return
+
+def load_cmd(cmd :str):
+    """Load only one cmd."""
+    if cmd.startswith("#"):
+        return
+    elif cmd.startswith("run"):
+        _a = runbatch(cmd[4:])
+        return
+    elif cmd.startswith("outl"):
+        _a = _outl(cmd)
+        return
+    elif cmd.startswith("out"):
+        _a = _out(cmd)
+        return
+    elif cmd.startswith("exit"):
+        _exit(cmd)
+    else:
+        print(errmsg.ERR_NO_COMMAND)
     return
