@@ -6,7 +6,7 @@ The new API is faster but uses (relatively) more RAM.
 from . import msg
 # Constants.
 version = (0,4,0)
-versuffix = "b1"
+versuffix = "pre"
 __null__ = None
 
 # Functions.
