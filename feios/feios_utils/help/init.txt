@@ -6,5 +6,6 @@ This is an operating system that dedicates to operating system.
 
 CUC(Commonly Used Commands)
 help  --           show the help and exit
+run   --           run the code included in a batch script
 out   --           print a message and continue on the same line
 outl  --           print a meassage and switch to next line
