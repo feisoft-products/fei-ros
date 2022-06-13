@@ -21,6 +21,10 @@ def outl(t :str):
     print(t)
     return
 
+def run_expr(expr :str):
+    "Run an expression using eval()."
+    eval(expr)
+
 def clear():
     _cls_cmd = 'cls' if os.name=='nt' else 'clear'
     os.system(_cls_cmd)
