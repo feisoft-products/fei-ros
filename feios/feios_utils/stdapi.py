@@ -5,7 +5,7 @@ The new API is faster but uses (relatively) more RAM.
 # Imports.
 from . import msg
 # Constants.
-version = (0,4,0)
+version = (0,4,1)
 versuffix = "stable"
 __null__ = None
 
