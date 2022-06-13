@@ -9,6 +9,7 @@ import os
 version = (0,5,0)
 versuffix = "dev7"
 __null__ = None
+indev_name = "0.5.0-pre"
 
 # Functions.
 def out(t :str):
