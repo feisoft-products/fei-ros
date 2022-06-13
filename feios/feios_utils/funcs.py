@@ -1,5 +1,6 @@
 # FEI OS useful utils
 from . import msg
+import os
 
 __all__ = ["out", "outline", "run", "runbatch","load_cmd"]
 
@@ -12,6 +13,7 @@ def out(txt: str):
 def outline(txt: str):
     """Normal print function."""
     print(txt, end="\n")
+
 
 
 def run(tl: list[str]):

@@ -4,6 +4,7 @@ The new API is faster but uses (relatively) more RAM.
 """
 # Imports.
 from . import msg
+import os
 # Constants.
 version = (0,4,1)
 versuffix = "stable"
@@ -19,6 +20,11 @@ def outl(t :str):
     "Printing and start another line."
     print(t)
     return
+
+def clear():
+    _cls_cmd = 'cls' if os.name=='nt' else 'clear'
+    os.system(_cls_cmd)
+    return None
 
 def _out(line :str):
     if len(line) == 3:
