@@ -1,8 +1,9 @@
 import sys,os,time
-import feios_utils.funcs as utils
+import feios_utils.stdapi as stdapi
 
 ################################
 
+os.system("cls" if os.name == 'nt' else "clear")
 print("Welcome to FEI-ROS.")
 print(f"Working on {os.name.upper()}")
 print("Wait for key services to setup...")
@@ -11,4 +12,4 @@ print("Starting detect services...")
 time.sleep(3)
 while True:
     s = input(">>>")
-    utils.load_cmd(s)
+    stdapi.load_cmd(s)
