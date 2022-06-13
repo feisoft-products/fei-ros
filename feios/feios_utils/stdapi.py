@@ -7,7 +7,7 @@ from . import msg
 import os
 # Constants.
 version = (0,5,0)
-versuffix = "stable"
+versuffix = "dev6"
 __null__ = None
 
 # Functions.
