@@ -6,7 +6,7 @@ The new API is faster but uses (relatively) more RAM.
 from . import msg
 import os
 # Constants.
-version = (0,4,1)
+version = (0,5,0)
 versuffix = "stable"
 __null__ = None
 
@@ -60,6 +60,11 @@ def _help():
     with open(".\help\init.txt") as f:
         a = f.read()
         print(a)
+
+def _version():
+    print(f"FEI OS Version {version[0]}.{version[1]}.{version[2]}")
+    print("This program and its library is licensed under GPLv3.0+.")
+    print("Inner development name '0.5.0-pre'.")
        
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
@@ -126,6 +131,8 @@ def load_cmd(cmd :str):
     elif cmd.startswith("out"):
         _a = _out(cmd)
         return
+    elif cmd == 'ver' or cmd == 'version':
+        _version()
     elif cmd.startswith("exit"):
         _exit(cmd)
     elif cmd.startswith("help"):
