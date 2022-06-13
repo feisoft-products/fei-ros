@@ -57,12 +57,12 @@ def _exit(line :str):
         exit(line[4:])
 
 def _help():
-    with open(".\help\init.txt") as f:
+    with open(r".\feios_utils\help\init.txt") as f:
         a = f.read()
         print(a)
 
 def _version():
-    print(f"FEI OS Version {version[0]}.{version[1]}.{version[2]}")
+    print(f"FEI OS Version {version[0]}.{version[1]}.{version[2]} {versuffix}")
     print("This program and its library is licensed under GPLv3.0+.")
     print("Inner development name '0.5.0-pre'.")
        
