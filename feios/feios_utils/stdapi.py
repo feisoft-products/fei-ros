@@ -7,7 +7,7 @@ from . import msg
 import os
 # Constants.
 version = (0,5,0)
-versuffix = "a1"
+versuffix = "a2"
 __null__ = None
 indev_name = "0.5.0-pre"
 
