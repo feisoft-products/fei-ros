@@ -7,7 +7,7 @@ from . import msg
 import os
 # Constants.
 version = (0,5,0)
-versuffix = "dev7"
+versuffix = "a1"
 __null__ = None
 indev_name = "0.5.0-pre"
 
@@ -69,7 +69,7 @@ def _help():
 def _version():
     print(f"FEI OS Version {version[0]}.{version[1]}.{version[2]} {versuffix}")
     print("This program and its library is licensed under GPLv3.0+.")
-    print("Inner development name '0.5.0-pre'.")
+    print(f"Inner development name {indev_name}.")
        
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
