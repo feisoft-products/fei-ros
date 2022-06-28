@@ -5,11 +5,12 @@ The new API is faster but uses (relatively) more RAM.
 # Imports.
 from . import msg
 import os
+import getpass
 # Constants.
-version = (0,5,0)
-versuffix = "stable"
+version = (0,6,0)
+versuffix = "dev1"
 __null__ = None
-indev_name = "0.5.0-pre"
+indev_name = "0.6.0-pre"
 
 # Functions.
 def out(t :str):
@@ -70,6 +71,11 @@ def _version():
     print(f"FEI OS Version {version[0]}.{version[1]}.{version[2]} {versuffix}")
     print("This program and its library is licensed under GPLv3.0+.")
     print(f"Inner development name {indev_name}.")
+
+def _login():
+    name = input("Username: ")
+    passwd = getpass.getpass("Password: ")
+
        
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
