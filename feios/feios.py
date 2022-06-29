@@ -16,7 +16,7 @@ if stdapi._login():
     time.sleep(1)
 else:
     print("Uh,that password is wrong.Try again.")
-    exit()
+    exit(time.sleep(2))
 while True:
     s = input(">>>")
     stdapi.load_cmd(s)
