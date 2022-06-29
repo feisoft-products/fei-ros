@@ -7,9 +7,10 @@ from . import msg
 import os
 import getpass
 import pathlib
+import hashlib
 # Constants.
 version = (0,6,0)
-versuffix = "dev2"
+versuffix = "dev3"
 __null__ = None
 indev_name = "0.6.0-pre"
 
@@ -74,8 +75,15 @@ def _version():
     print(f"Inner development name {indev_name}.")
 
 def _login():
-    name = input("Username: ")
     passwd = getpass.getpass("Password: ")
+    passwd = bytes(passwd,encoding="utf-8")
+    dig = hashlib.sha256()
+    dig.update(passwd)
+    _hash = dig.hexdigest()
+    if _hash != "2285d2badca55370a0d794a9df898c29922d21504c5c2c7fcb984c75328ad424":
+        return False
+    return True
+
 
 def _get_file(pof):
     os.chdir(os.path.dirname(os.path.realpath(__file__)))
