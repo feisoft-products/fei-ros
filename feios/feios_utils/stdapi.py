@@ -6,9 +6,10 @@ The new API is faster but uses (relatively) more RAM.
 from . import msg
 import os
 import getpass
+import pathlib
 # Constants.
 version = (0,6,0)
-versuffix = "dev1"
+versuffix = "dev2"
 __null__ = None
 indev_name = "0.6.0-pre"
 
@@ -76,7 +77,15 @@ def _login():
     name = input("Username: ")
     passwd = getpass.getpass("Password: ")
 
-       
+def _get_file(pof):
+    os.chdir(os.path.dirname(os.path.realpath(__file__)))
+    rawpth = os.path.dirname(os.path.realpath(__file__))
+    tmp = pathlib.Path(rawpth)
+    tmp2 = tmp.joinpath(".disk")
+    finding = str(tmp2)
+    realstr = finding + pof
+    return realstr
+
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
         import os
