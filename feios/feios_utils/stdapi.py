@@ -10,7 +10,7 @@ import pathlib
 import hashlib
 # Constants.
 version = (0,6,0)
-versuffix = "dev4.1"
+versuffix = "dev5"
 __null__ = None
 indev_name = "0.6.0-pre"
 
@@ -83,6 +83,9 @@ def _login():
     if _hash != "2285d2badca55370a0d794a9df898c29922d21504c5c2c7fcb984c75328ad424":
         return False
     return True
+
+def _logout():
+    exit()
 
 
 def _get_file(pof):
@@ -163,6 +166,8 @@ def load_cmd(cmd :str):
         _version()
     elif cmd.startswith("exit"):
         _exit(cmd)
+    elif cmd.startswith("logout"):
+        _logout()
     elif cmd.startswith("help"):
         _help()
     else:
