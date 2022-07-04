@@ -97,6 +97,12 @@ def _get_file(pof):
     realstr = finding + pof
     return realstr
 
+def _cat(pof):
+    realpth = _get_file(pof)
+    f = open(realpth,'r')
+    content = f.read()
+    print(content)
+
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
         import os
@@ -137,6 +143,8 @@ def run(l :list[str]):
         elif line.startswith("run"):
             _a = runbatch(line[4:])
             continue
+        elif line.startswith("cat"):
+            _cat(line[4:])
         elif line.startswith("outl"):
             _a = _outl(line)
             continue
@@ -156,6 +164,8 @@ def load_cmd(cmd :str):
     elif cmd.startswith("run"):
         _a = runbatch(cmd[4:])
         return
+    elif cmd.startswith("cat"):
+        _cat(cmd[4:])
     elif cmd.startswith("outl"):
         _a = _outl(cmd)
         return
