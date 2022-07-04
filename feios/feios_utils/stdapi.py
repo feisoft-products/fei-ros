@@ -97,7 +97,8 @@ def _get_file(pof):
     realstr = finding + pof
     return realstr
 
-def _cat(cmd):
+def _cat(cmd :str):
+    cmd = cmd.strip()
     if cmd == 'cat':
         print("Usage:  cat [file | --]")
         print("Like `cat` on POSIX systems,this `cat` can either read contents from a file or read from STDIN.")
