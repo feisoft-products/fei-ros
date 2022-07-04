@@ -155,7 +155,7 @@ def run(l :list[str]):
             _a = runbatch(line[4:])
             continue
         elif line.startswith("cat"):
-            _cat(line[4:])
+            _cat(line)
         elif line.startswith("outl"):
             _a = _outl(line)
             continue
