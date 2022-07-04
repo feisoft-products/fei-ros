@@ -10,3 +10,4 @@ run     --           run the code included in a batch script
 out     --           print a message and continue on the same line
 outl    --           print a meassage and switch to next line
 ver     --           Check your computer version
+cat     --           Print from STDIN or file.

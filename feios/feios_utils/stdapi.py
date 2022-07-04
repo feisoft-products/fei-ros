@@ -97,11 +97,22 @@ def _get_file(pof):
     realstr = finding + pof
     return realstr
 
-def _cat(pof):
-    realpth = _get_file(pof)
-    f = open(realpth,'r')
-    content = f.read()
-    print(content)
+def _cat(cmd):
+    if cmd == 'cat':
+        print("Usage:  cat [file | --]")
+        print("Like `cat` on POSIX systems,this `cat` can either read contents from a file or read from STDIN.")
+        print("If you use `--`,that means you force to read from STDIN.")
+        print("If no arguments given,print the help and read from STDIN.")
+        s = input()
+        print(s)
+    elif cmd == 'cat --':
+        s = input()
+        print(s)
+    else:
+        realpth = _get_file(cmd[4:])
+        f = open(realpth,'r')
+        content = f.read()
+        print(content)
 
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
@@ -165,7 +176,7 @@ def load_cmd(cmd :str):
         _a = runbatch(cmd[4:])
         return
     elif cmd.startswith("cat"):
-        _cat(cmd[4:])
+        _cat(cmd)
     elif cmd.startswith("outl"):
         _a = _outl(cmd)
         return
