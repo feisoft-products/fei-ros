@@ -8,6 +8,7 @@ import os
 import getpass
 import pathlib
 import hashlib
+import tkinter.messagebox as msgbox
 # Constants.
 version = (0,6,0)
 versuffix = "dev5"
@@ -97,6 +98,9 @@ def _get_file(pof):
     realstr = finding + pof
     return realstr
 
+def _fatal():
+    msgbox.showerror("Oops,you triggered a fatal error!")
+
 def _cat(cmd :str):
     cmd = cmd.strip()
     if cmd == 'cat':
@@ -178,6 +182,8 @@ def load_cmd(cmd :str):
         return
     elif cmd.startswith("cat"):
         _cat(cmd)
+    elif cmd.startswith("fatal"):
+        _fatal()
     elif cmd.startswith("outl"):
         _a = _outl(cmd)
         return
