@@ -1,4 +1,4 @@
-FEI ROS version 0.5.0(pre-release;0.5.0)       FEI Help Service 0.1.1(pre-release;0.1.1;python)
+FEI ROS version 0.6.0(pre-release;0.6.0)       FEI Help Service 0.1.2(pre-release;0.1.2;python)
 Welcome to FEI ROS.
 This is an operating system that dedicates to operating system.
 

@@ -10,7 +10,7 @@ import pathlib
 import hashlib
 # Constants.
 version = (0,6,0)
-versuffix = "b1"
+versuffix = "RELEASE"
 __null__ = None
 indev_name = "0.6.0-pre"
 
