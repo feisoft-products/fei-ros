@@ -10,7 +10,7 @@ import pathlib
 import hashlib
 # Constants.
 version = (0,6,0)
-versuffix = "a2"
+versuffix = "a3"
 __null__ = None
 indev_name = "0.6.0-pre"
 
@@ -97,6 +97,19 @@ def _get_file(pof):
     realstr = finding + pof
     return realstr
 
+def get_file(pof):
+    pth = _get_file(pof)
+    return pth
+
+def _get_ext(pte: str):
+    pth = _get_file(pte)
+    if pth.endswith(".fsc") or pth.endswith(".ext") or pth.endswith(".py"):
+        pass
+    else:
+        return -1
+    fc = open(pth,'r').read()
+    exec(fc)
+    return 0
 
 def _cat(cmd :str):
     cmd = cmd.strip()
