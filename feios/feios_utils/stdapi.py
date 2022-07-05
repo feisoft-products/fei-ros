@@ -11,7 +11,7 @@ import hashlib
 import tkinter.messagebox as msgbox
 # Constants.
 version = (0,6,0)
-versuffix = "dev5"
+versuffix = "a1"
 __null__ = None
 indev_name = "0.6.0-pre"
 
