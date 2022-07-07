@@ -5,14 +5,15 @@ The new API is faster but uses (relatively) more RAM.
 # Imports.
 from . import msg
 import os
+import time
 import getpass
 import pathlib
 import hashlib
 # Constants.
-version = (0,6,1)
-versuffix = "Update 305"
+version = (0,7,0)
+versuffix = "dev1"
 __null__ = None
-indev_name = "0.6.0-pre"
+indev_name = "Uranium"
 
 # Functions.
 def out(t :str):
@@ -58,6 +59,14 @@ def _outl(line :str):
             print(msg.ERR_SPACES)
             return 2
 
+def shutdown_sys(msg :str,secs=5):
+    print(msg)
+    print("Your system is going to shutdown!")
+    print(f"Shutting down in {secs} seconds.")
+    print("Close all applications.")
+    time.sleep(secs)
+    exit()
+
 def _exit(line :str):
     if len(line) == 4:
         exit()
@@ -72,7 +81,7 @@ def _help():
 def _version():
     print(f"FEI OS Version {version[0]}.{version[1]}.{version[2]} {versuffix}")
     print("This program and its library is licensed under GPLv3.0+.")
-    print(f"Inner development name {indev_name}.")
+    print(f"Code name {indev_name}.")
 
 def _login():
     passwd = getpass.getpass("Password: ")
