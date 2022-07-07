@@ -10,7 +10,7 @@ import pathlib
 import hashlib
 # Constants.
 version = (0,6,1)
-versuffix = "Update 301"
+versuffix = "Update 305"
 __null__ = None
 indev_name = "0.6.0-pre"
 

@@ -32,4 +32,5 @@ while True:
         print("Oops,your interrupt is not graceful!")
         print("To exit,simply `exit`.")
         print("Or end it in taskmgr (NT) or kill it (POSIX).")
+        continue
     stdapi.load_cmd(s)
