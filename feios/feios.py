@@ -26,5 +26,10 @@ else:
     print("Uh,that password is wrong.Try again.")
     exit(time.sleep(2))
 while True:
-    s = input(">>>")
+    try:
+        s = input(">>>")
+    except (KeyboardInterrupt,EOFError):
+        print("Oops,your interrupt is not graceful!")
+        print("To exit,simply `exit`.")
+        print("Or end it in taskmgr (NT) or kill it (POSIX).")
     stdapi.load_cmd(s)
