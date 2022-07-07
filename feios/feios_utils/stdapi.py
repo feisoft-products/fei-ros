@@ -9,7 +9,7 @@ import getpass
 import pathlib
 import hashlib
 # Constants.
-version = (0,6,0)
+version = (0,6,1)
 versuffix = "RELEASE"
 __null__ = None
 indev_name = "0.6.0-pre"
@@ -185,27 +185,33 @@ def run(l :list[str]):
 
 def load_cmd(cmd :str):
     """Load only one cmd."""
-    if cmd.startswith("#"):
+    try:
+        if cmd.startswith("#"):
+            return
+        elif cmd.startswith("run"):
+            _a = runbatch(cmd[4:])
+            return
+        elif cmd.startswith("cat"):
+            _cat(cmd)
+        elif cmd.startswith("outl"):
+            _a = _outl(cmd)
+            return
+        elif cmd.startswith("out"):
+            _a = _out(cmd)
+            return
+        elif cmd == 'ver' or cmd == 'version':
+            _version()
+        elif cmd.startswith("exit"):
+            _exit(cmd)
+        elif cmd.startswith("logout"):
+            _logout()
+        elif cmd.startswith("help"):
+            _help()
+        else:
+            print(msg.ERR_NO_COMMAND)
         return
-    elif cmd.startswith("run"):
-        _a = runbatch(cmd[4:])
+    except (KeyboardInterrupt,EOFError):
+        print("Oops,your interrupt is not graceful!")
+        print("To exit,simply `exit`.")
+        print("Or end it in taskmgr (NT) or kill it (POSIX).")
         return
-    elif cmd.startswith("cat"):
-        _cat(cmd)
-    elif cmd.startswith("outl"):
-        _a = _outl(cmd)
-        return
-    elif cmd.startswith("out"):
-        _a = _out(cmd)
-        return
-    elif cmd == 'ver' or cmd == 'version':
-        _version()
-    elif cmd.startswith("exit"):
-        _exit(cmd)
-    elif cmd.startswith("logout"):
-        _logout()
-    elif cmd.startswith("help"):
-        _help()
-    else:
-        print(msg.ERR_NO_COMMAND)
-    return
