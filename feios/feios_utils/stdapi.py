@@ -10,9 +10,10 @@ import toml
 import getpass
 import pathlib
 import hashlib
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 # Constants.
 version = (0,7,0)
-versuffix = "dev3"
+versuffix = "dev4"
 __null__ = None
 indev_name = "Uranium"
 
@@ -75,7 +76,7 @@ def _exit(line :str):
         exit(line[4:])
 
 def _help():
-    with open(r".\feios_utils\help\init.txt") as f:
+    with open(r".\help\init.txt") as f:
         a = f.read()
         print(a)
 
