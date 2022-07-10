@@ -12,7 +12,7 @@ import pathlib
 import hashlib
 # Constants.
 version = (0,7,0)
-versuffix = "dev2"
+versuffix = "dev3"
 __null__ = None
 indev_name = "Uranium"
 
