@@ -10,8 +10,8 @@ import getpass
 import pathlib
 import hashlib
 # Constants.
-version = (0,7,0)
-versuffix = "dev1"
+version = (0,6,1)
+versuffix = "STABLE"
 __null__ = None
 indev_name = "Uranium"
 
