@@ -6,12 +6,13 @@ The new API is faster but uses (relatively) more RAM.
 from . import msg
 import os
 import time
+import toml
 import getpass
 import pathlib
 import hashlib
 # Constants.
 version = (0,7,0)
-versuffix = "dev1"
+versuffix = "dev2"
 __null__ = None
 indev_name = "Uranium"
 
@@ -85,14 +86,11 @@ def _version():
 
 def _login():
     passwd = getpass.getpass("Password: ")
-    passwd = bytes(passwd,encoding="utf-8")
-    dig = hashlib.sha256()
-    dig.update(passwd)
-    _hash = dig.hexdigest()
-    if _hash != "2285d2badca55370a0d794a9df898c29922d21504c5c2c7fcb984c75328ad424":
+    if _get_passwd_from_file(passwd):
+        return True
+    else:
         return False
-    return True
-
+    
 def _logout():
     exit()
 
@@ -137,6 +135,14 @@ def _cat(cmd :str):
         f = open(realpth,'r')
         content = f.read()
         print(content)
+
+def _get_passwd_from_file(pwd :str):
+    pwd = bytes(pwd,encoding='utf-8')
+    pth = _get_file("/usr/passwd/SHA256.sig")
+    hsh = open(pth,'r').read()
+    calc = hashlib.sha256()
+    calc.update(pwd)
+    return calc.hexdigest() == hsh
 
 def _deep_load_ext(extpth,mode):
     if mode == 'python':
