@@ -1,6 +1,8 @@
 import sys,os,time
 import feios_utils.stdapi as stdapi
 import feios_utils.msg as msg
+import atexit
+atexit.register(os.system,'color 0f && cls')
 
 ################################
 

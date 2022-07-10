@@ -138,7 +138,7 @@ def _cat(cmd :str):
 
 def _get_passwd_from_file(pwd :str):
     pwd = bytes(pwd,encoding='utf-8')
-    pth = _get_file("/usr/passwd/SHA256.sig")
+    pth = _get_file(r"/usr/passwd/SHA256.sig")
     hsh = open(pth,'r').read()
     calc = hashlib.sha256()
     calc.update(pwd)
