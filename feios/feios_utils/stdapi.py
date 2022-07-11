@@ -29,8 +29,8 @@ def outl(t :str):
     return
 
 def run_expr(expr :str):
-    "Run an expression using eval()."
-    eval(expr)
+    "Run an expression using exec()."
+    exec(expr)
 
 def clear():
     _cls_cmd = 'cls' if os.name=='nt' else 'clear'
@@ -130,6 +130,11 @@ def _su():
         shutdown_sys("Computer is shutting down to protect your system.",3)
         return
 
+def _calc(expr :str):
+    a = run_expr(expr)
+    print(a)
+    return
+
 def _cat(cmd :str):
     cmd = cmd.strip()
     if cmd == 'cat':
@@ -201,6 +206,8 @@ def run(l :list[str]):
         elif line.startswith("outl"):
             _a = _outl(line)
             continue
+        elif line.startswith('calc'):
+            _calc(line[5:])
         elif line.startswith("out"):
             _a = _out(line)
             continue
@@ -223,6 +230,8 @@ def load_cmd(cmd :str):
         elif cmd.startswith("outl"):
             _a = _outl(cmd)
             return
+        elif cmd.startswith("calc"):
+            _calc(cmd[5:])
         elif cmd.startswith("out"):
             _a = _out(cmd)
             return
