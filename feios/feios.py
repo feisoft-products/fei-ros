@@ -8,7 +8,7 @@ atexit.register(os.system,'color 0f && cls')
 
 stdapi.clear()
 if os.name == 'nt':
-    os.system("color 5f")
+    os.system("color 2f")
     stdapi.clear()
     print(msg.STD_BOOT)
 else:
