@@ -31,6 +31,7 @@ while True:
     try:
         s = input(">>>")
     except (KeyboardInterrupt,EOFError):
+        print("")
         print("Oops,your interrupt is not graceful!")
         print("To exit,simply `exit`.")
         print("Or end it in taskmgr (NT) or kill it (POSIX).")

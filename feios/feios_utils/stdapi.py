@@ -13,7 +13,7 @@ import hashlib
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 # Constants.
 version = (0,7,0)
-versuffix = "dev4"
+versuffix = "dev5"
 __null__ = None
 indev_name = "Uranium"
 
@@ -119,6 +119,17 @@ def _get_ext(pte: str):
     exec(fc)
     return 0
 
+def _su():
+    print("Enter Password to continue: ")
+    passwd = getpass.getpass()
+    if _get_passwd_from_file(passwd):
+        print("Running in levtitated mode.")
+        return
+    else:
+        print("Uh-oh,you entered the wrong password.")
+        shutdown_sys("Computer is shutting down to protect your system.",3)
+        return
+
 def _cat(cmd :str):
     cmd = cmd.strip()
     if cmd == 'cat':
@@ -215,6 +226,8 @@ def load_cmd(cmd :str):
         elif cmd.startswith("out"):
             _a = _out(cmd)
             return
+        elif cmd == 'su':
+            _su()
         elif cmd == 'ver' or cmd == 'version':
             _version()
         elif cmd.startswith("exit"):
